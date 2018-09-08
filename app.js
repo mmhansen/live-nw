@@ -29,7 +29,8 @@ var app = new Vue({
     expenses: 40000,
     growth: 1,
     secondsToDate: secondsToDate(),
-    now: new Date().toString()
+    today: new Date().toLocaleDateString(),
+    now: new Date().toLocaleTimeString()
   },
   computed: {
     value: function () {
@@ -57,7 +58,8 @@ var app = new Vue({
       const self = this; // explicit ref to vue
       setInterval(function() {
         self.secondsToDate = secondsToDate()
-        self.now = new Date().toString();
+        self.today = new Date().toLocaleDateString();
+        self.now = new Date().toLocaleTimeString();
       }, SECOND)
     }
   },
