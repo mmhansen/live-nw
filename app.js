@@ -24,6 +24,7 @@ var app = new Vue({
   el: '#app',
   data: {
     investments: 2000,
+    debts: 0,
     income: 45000,
     expenses: 40000,
     growth: 1,
@@ -32,9 +33,9 @@ var app = new Vue({
   },
   computed: {
     value: function () {
-      const { investments, income, expenses, secondsToDate } = this;
+      const { investments, debts, income, expenses, secondsToDate } = this;
 
-      const initial = Number(investments);
+      const initial = Number(investments - debts);
       const investable = income - expenses;
       const interest = 
       (investable + initial) * pct(RATE);
