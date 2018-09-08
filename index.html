@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Live Net Worth</title>
+  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
+</head>
+<body>
+  <div id="app">
+    <div class="fl w-third">
+      <h1>Inputs</h1>
+      <label>Investments: </label>
+      <input v-model="investments" class="fr">      
+      <hr />
+      <label>Annual Income (After Taxes): </label>
+      <input v-model="income" class="fr">      
+      <hr />
+      <label>Annual Expenses: </label>
+      <input v-model="expenses" class="fr">      
+      <hr />
+      <p>{{investable}}</p>
+      <hr />
+      <label>Income Growth (%): </label>
+      <input v-model="growth" class="fr">      
+      <hr />
+    </div>
+    <div class="fl w-two-thirds">
+      <h1>Output: </h1>
+      <p>{{value}}</p>
+      <p>Seconds to date: {{secondsToDate}}</p>
+      <p>It is {{now}}</p>
+
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
