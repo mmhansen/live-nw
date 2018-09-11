@@ -9,7 +9,7 @@
 </head>
 <body>
   <div id="app">
-    <div class="fl w-third">
+    <div class="fl w-third pa4">
       <h1>Inputs</h1>
       <label>Investments: </label>
       <input v-model="investments" class="fr">      
@@ -26,12 +26,15 @@
       <input v-model="growth" class="fr">      
       <hr />
     </div>
-    <div class="fl w-two-thirds">
+    <div class="fl w-two-thirds pa4">
       <h1>Output: </h1>
       <p>{{value}}</p>
       <p>Seconds to date: {{secondsToDate}}</p>
       <p>It is {{now}}</p>
-
+      <div class="f3">
+        <span class="almost-black">${{currency}}</span>
+        <span class="light-red">{{microCurrency}}</span>
+      </div>
     </div>
   </div>
   

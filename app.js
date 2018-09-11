@@ -44,10 +44,16 @@ var app = new Vue({
       const growth = interestPerSecond * secondsToDate;
 
       const sum = static + growth
-      return sum.toFixed(6);
+      return sum.toFixed(5);
     },
     investable: function () {
       return this.income - this.expenses;
+    },
+    currency: function () {
+      return String(this.value).slice(0,-3)
+    },
+    microCurrency: function () {
+      return String(this.value).slice(-3)
     }
   },
   methods: {
