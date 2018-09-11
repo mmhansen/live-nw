@@ -24,17 +24,19 @@ var app = new Vue({
   el: '#app',
   data: {
     investments: 2000,
+    debts: 0,
     income: 45000,
     expenses: 40000,
     growth: 1,
     secondsToDate: secondsToDate(),
-    now: new Date().toString()
+    today: new Date().toLocaleDateString(),
+    now: new Date().toLocaleTimeString()
   },
   computed: {
     value: function () {
-      const { investments, income, expenses, secondsToDate } = this;
+      const { investments, debts, income, expenses, secondsToDate } = this;
 
-      const initial = Number(investments);
+      const initial = Number(investments - debts);
       const investable = income - expenses;
       const interest = 
       (investable + initial) * pct(RATE);
@@ -62,7 +64,8 @@ var app = new Vue({
       const self = this; // explicit ref to vue
       setInterval(function() {
         self.secondsToDate = secondsToDate()
-        self.now = new Date().toString();
+        self.today = new Date().toLocaleDateString();
+        self.now = new Date().toLocaleTimeString();
       }, SECOND)
     }
   },
