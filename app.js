@@ -20,7 +20,25 @@ const secondsToDate = _ => {
   const diff = (now - start) / 1000
   return diff
 }
-var app = new Vue({
+
+Vue.component('input-group', {
+  props: ["name", "help"],
+  data: function () {
+    return {}
+  },
+  template: `
+  <div class="measure ph3 near-black tracked">
+      <label for="name" class="f6 b db mb2">
+      {{name}}
+        <span class="normal light-gray">{{help}}</span>
+        
+      </label>
+      <input :id="name" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text" aria-describedby="name-desc">
+    </div>
+  `
+})
+
+new Vue({
   el: '#app',
   data: {
     investments: 2000,
@@ -73,3 +91,4 @@ var app = new Vue({
     this.clock();
   }
 })
+
